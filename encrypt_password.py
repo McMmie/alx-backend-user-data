@@ -4,13 +4,13 @@
 import bcrypt
 
 
-def hash_password(pass: str) -> bytes:
+def hash_password(password: str) -> bytes:
     """
     """
-    return bcrypt.hashpw(pass.encode('utf-8'), bcrypt.gensalt())
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
 
-def is_valid(hashed: bytes, pass: str) -> bool:
+def is_valid(hashed_password: bytes, password: str) -> bool:
     """
     """
-    return bcrypt.checkpw(pass.encode('utf-8'), hashed)
+    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
