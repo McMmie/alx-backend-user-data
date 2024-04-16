@@ -34,6 +34,7 @@ def unauth() -> str:
     """
     return jsonify(abort(401))
 
+
 @app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
 def forbidden() -> str:
     """GET /api/v1/forbidden
