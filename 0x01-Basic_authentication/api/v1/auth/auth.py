@@ -18,7 +18,7 @@ class Auth:
         if path is None or excluded_paths is None or not excluded_paths:
             return True
         for item in excluded_paths:
-            if fnmatch.fnmatch(path, excluded_path):
+            if fnmatch.fnmatch(path, item):
                 return False
             else:
                 return True
