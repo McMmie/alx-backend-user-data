@@ -26,7 +26,12 @@ elif getenv("AUTH_TYPE", "basic_auth"):
 def session_auth():
     """before request handler
     """
-    paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    paths = [
+            '/api/v1/status/',
+            '/api/v1/unauthorized/',
+            '/api/v1/forbidden/',
+            '/api/v1/auth_session/login/'
+            ]
 
     if auth is None or not auth.require_auth(request.path, paths):
         pass
@@ -34,7 +39,7 @@ def session_auth():
     if not auth.authorization_header(request):
         return abort(401)
     if not auth.current_user(request):
-        return abort(403)
+        return abort(401)
 
 
 @app.errorhandler(404)
