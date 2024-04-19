@@ -38,3 +38,12 @@ class Auth:
         returns none
         """
         return None
+
+    def session_cookie(self, request=None):
+        """
+        """
+
+        if request is None:
+            return None
+        session = os.getenve('SESSION_NAME')
+        return request.cookie.get(session)
